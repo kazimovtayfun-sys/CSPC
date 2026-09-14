@@ -1,5 +1,5 @@
 # CSPC - Computer Science for Physics and Chemistry
-My coursework repository. Each practical is under PW<n>/Lab <X>/.
+My coursework repository. Each practical is under `PW<n>/Lab <X>/`.
 
 ## Setup
 Create the environment for a given lab:
