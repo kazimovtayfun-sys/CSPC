@@ -13,13 +13,13 @@ Coursework repository structure, Conda environment, Git branching, unit tests, a
 
 Speed comparison (loop vs NumPy):
 
-loop: ... s
+loop: 5.9297 s
 
-numpy: ... s
+numpy: 0.0003 s
 
-speed-up: ... x faster
+speed-up: 17334.6 x faster
 
-Tests: all passing? (yes / no)
+Tests: all passing? Yes
 
 Conclusion:
 In this lab, I set up a reproducible environment using Conda and Git. The vectorised NumPy implementation demonstrated significant performance improvements over pure Python loops. All unit tests passed successfully.
