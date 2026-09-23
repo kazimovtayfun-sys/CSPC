@@ -23,3 +23,8 @@ Tests: all passing? Yes
 
 Conclusion:
 In this lab, I set up a reproducible environment using Conda and Git. The vectorised NumPy implementation demonstrated significant performance improvements over pure Python loops. All unit tests passed successfully.
+
+## PW1 - Lab B: Data, Plotting, and Automation
+
+- **Data Findings & Model Fit**: The observed radioactive decay data decreases exponentially over time. When plotted alongside the theoretical curve ($N_0 e^{-\lambda t}$ with $\lambda = 0.3$), the measured data closely follows the analytical decay law.
+- **Snakemake Automation**: The Snakemake pipeline automates figure generation, re-running `plot.py` to produce `figure.png` only when the input files (`decay_observed.csv`, `plot.py`) are modified or when the target figure is missing.
