@@ -37,3 +37,8 @@ In this lab, I set up a reproducible environment using Conda and Git. The vector
 ### Observations:
 - **Noise in Acceleration:** Numerical differentiation magnifies high-frequency measurement noise because finite differences divide small position fluctuations by the small time step ($\Delta t = 0.1\text{ s}$). Differentiating twice amplifies this effect exponentially, leading to large oscillations in acceleration even though the position data appears smooth.
 - **Integration Effect:** Integration performs cumulative summation, which acts as a low-pass filter and allows zero-mean random noise to cancel out. Consequently, integrating the noisy acceleration back recovers the original position trajectory within less than a metre of error.
+
+### Bonus (2D Trajectory):
+- Processed 2D position tracking data from `trajectory.csv`.
+- Computed velocity components $v_x$ and $v_y$ using numerical differentiation, then calculated total speed $\sqrt{v_x^2 + v_y^2}$.
+- Generated and saved `trajectory.png` showing the 2D path and speed evolution over time.
