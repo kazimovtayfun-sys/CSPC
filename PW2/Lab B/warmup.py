@@ -83,7 +83,16 @@ def compare_methods(name, objective, derivative, second_derivative, x0):
 
 
 def main():
+    # TODO 2A: minimise f three ways from x0=0 and print each result:
+    #   (1) gradient descent by hand (loop x = x - lr*df(x) until the step is tiny)
+    #   (2) scipy.optimize.newton(df, x0, fprime=d2f)
+    #   (3) scipy.optimize.minimize(f, x0, method="SLSQP")
     compare_methods("Part 2A: f(x) = (x - 3)^2 + 1", f, df, d2f, x0=0.0)
+    # TODO 2B: run the same three methods on g, from x0=0 AND from x0=2.
+    #   For Newton (which solves dg(x)=0), also check the sign of d2g at the answer:
+    #   d2g > 0 means a minimum, d2g < 0 means a maximum.
+    #   In your README note: do the methods agree? did Newton find a minimum or
+    #   another stationary point? how did the starting point change the result?
     for x0 in (0.0, 2.0):
         compare_methods("Part 2B: g(x) = x^4 - 3x^2 + x + 5", g, dg, d2g, x0)
 

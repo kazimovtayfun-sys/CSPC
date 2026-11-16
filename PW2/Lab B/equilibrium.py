@@ -15,6 +15,8 @@ K = 15.6
 a = b = 1.0  # Initial amounts of H2 and I2, in mol.
 
 
+# TODO 1: write k_imbalance(x) = (2x)^2/((a-x)(b-x)) - K.
+#         It equals zero exactly at equilibrium.
 def k_imbalance(x):
     """Return zero when the reaction quotient equals K."""
     return (2 * x) ** 2 / ((a - x) * (b - x)) - K
@@ -26,10 +28,15 @@ def squared_imbalance(x):
 
 
 def main():
+    # TODO 2 (method 1): use scipy.optimize.newton to find the root of k_imbalance
+    #         (start x0=0.5). This is root-finding.
     # Method 1: find a zero of the equilibrium equation.
     # Without fprime, scipy's newton function uses the secant method.
     x_newton = newton(k_imbalance, x0=0.5, tol=1e-12, maxiter=100)
 
+    # TODO 3 (method 2): use scipy.optimize.minimize to minimise k_imbalance(x)**2
+    #         (method "SLSQP", bounds [(0, 0.999)], x0=[0.5]). Print both answers
+    #         and confirm they agree.
     # Method 2: minimize the squared imbalance within the physical interval.
     # The upper bound avoids division by zero at x = 1.
     result = minimize(
@@ -56,6 +63,9 @@ def main():
     print(f"  Imbalance = {k_imbalance(x_slsqp):.3e}")
     print(f"Methods agree within 1e-6 mol: {bool(agree)}")
 
+    # TODO 4: report the equilibrium amounts (H2, I2, HI), and plot how the three
+    #         amounts change with the extent x, marking the equilibrium. Save
+    #         equilibrium.png.
     # Both methods agree; use the root to report and mark the composition.
     x_eq = x_newton
     n_h2 = a - x_eq

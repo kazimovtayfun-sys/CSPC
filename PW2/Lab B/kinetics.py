@@ -13,16 +13,22 @@ from scipy.optimize import minimize
 
 def main():
     folder = Path(__file__).resolve().parent
+    # TODO 1: read kinetics.csv (columns time, concentration) into arrays t, C.
+    #         Set C0 = the first concentration.
     data = np.genfromtxt(folder / "kinetics.csv", delimiter=",", names=True)
     t = data["time"]
     C = data["concentration"]
     C0 = C[0]
 
+    # TODO 2: write total_error(k) = sum of (measured - C0*exp(-k*t))^2.
+    #         This is the "how bad" number: small when the model matches the data.
     def total_error(k):
         """Sum of squared residuals for C(t) = C0 * exp(-k*t)."""
         predicted = C0 * np.exp(-k * t)
         return np.sum((C - predicted) ** 2)
 
+    # TODO 3: minimise total_error with scipy.optimize.minimize (method "SLSQP",
+    #         bounds [(0, 5)], start x0=0.5). Print the fitted k.
     result = minimize(
         total_error,
         x0=[0.5],
@@ -41,6 +47,8 @@ def main():
     print(f"Sum of squared errors = {sse:.6f}")
     print(f"Root-mean-square error = {rmse:.6f}")
 
+    # TODO 4: plot the measured data (points) and your fitted curve (line) together.
+    #         Save as kinetics.png.
     t_curve = np.linspace(t.min(), t.max(), 400)
     C_curve = C0 * np.exp(-k_fit * t_curve)
     fig, ax = plt.subplots(figsize=(8, 5), constrained_layout=True)
