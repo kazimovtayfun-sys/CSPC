@@ -1,0 +1,45 @@
+PW2 - Lab B: recorded script output
+
+--- warmup.py ---
+
+Part 2A: f(x) = (x - 3)^2 + 1, starting at x0 = 0
+Gradient descent: x = 2.999999999, value = 1.000000000 (209 steps, lr = 0.05)
+Newton:           x = 3.000000000, value = 1.000000000, second derivative = 2.000000000 -> minimum
+SLSQP:            x = 3.000000000, value = 1.000000000
+
+Part 2B: g(x) = x^4 - 3x^2 + x + 5, starting at x0 = 0
+Gradient descent: x = -1.300839566, value = 1.486094961 (28 steps, lr = 0.05)
+Newton:           x = 0.169938443, value = 5.084135221, second derivative = -5.653451106 -> maximum
+SLSQP:            x = -1.300839552, value = 1.486094961
+
+Part 2B: g(x) = x^4 - 3x^2 + x + 5, starting at x0 = 2
+Gradient descent: x = 1.130901123, value = 3.929769818 (36 steps, lr = 0.05)
+Newton:           x = 1.130901123, value = 3.929769818, second derivative = 9.347248190 -> minimum
+SLSQP:            x = -1.300839576, value = 1.486094961
+
+--- kinetics.py ---
+Initial concentration C0 = 104.082
+Fitted rate constant k = 0.26176039 (inverse time units)
+Sum of squared errors = 266.129419
+Root-mean-square error = 2.579387
+Saved kinetics.png
+
+--- equilibrium.py ---
+K = 15.6
+Newton (secant): x = 0.663847667 mol
+  Imbalance = -7.105e-15
+SLSQP:          x = 0.663847659 mol
+  Imbalance = -1.056e-06
+Methods agree within 1e-6 mol: True
+Equilibrium composition:
+  H2 = 0.336152 mol
+  I2 = 0.336152 mol
+  HI = 1.327695 mol
+Saved equilibrium.png
+
+--- titration.py ---
+Equivalence volume = 50.00 mL
+pH at equivalence = 7.000
+Maximum numerical slope = 4.000 pH/mL
+Saved titration.png
+
