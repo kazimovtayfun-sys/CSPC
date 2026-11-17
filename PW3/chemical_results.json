@@ -1,0 +1,128 @@
+{
+  "shape": [
+    1000,
+    5
+  ],
+  "missing_values": {
+    "benzene": 0,
+    "cadmium": 0,
+    "pollution_index": 0,
+    "age": 0,
+    "malignancy": 0
+  },
+  "duplicate_rows": 0,
+  "naive_pearson": {
+    "benzene": {
+      "r": 0.38469912819385765,
+      "p": 1.2755900271404846e-36,
+      "n": 1000
+    },
+    "cadmium": {
+      "r": 0.8799707225667612,
+      "p": 0.0,
+      "n": 1000
+    }
+  },
+  "pollution_pearson": {
+    "benzene": {
+      "r": 0.05448856076717518,
+      "p": 0.08503256721880921,
+      "n": 1000
+    },
+    "cadmium": {
+      "r": 0.9818695935025179,
+      "p": 0.0,
+      "n": 1000
+    },
+    "malignancy": {
+      "r": 0.8951359971944346,
+      "p": 0.0,
+      "n": 1000
+    },
+    "age": {
+      "r": -0.09632231885846951,
+      "p": 0.0022940425316835948,
+      "n": 1000
+    }
+  },
+  "partial_correlations_controls_pollution_and_age": {
+    "benzene": {
+      "r": 0.7594759019371347,
+      "p": 3.4653233309812935e-188,
+      "df": 996,
+      "n": 1000
+    },
+    "cadmium": {
+      "r": 0.0068856489162755375,
+      "p": 0.8280092723707853,
+      "df": 996,
+      "n": 1000
+    }
+  },
+  "pollution_band_40_to_60": {
+    "benzene": {
+      "r": 0.7016477487017813,
+      "p": 8.078189339208182e-31,
+      "n": 199
+    },
+    "cadmium": {
+      "r": 0.3156977435684184,
+      "p": 5.569424879737283e-06,
+      "n": 199
+    }
+  },
+  "adjusted_OLS": {
+    "coefficients": {
+      "intercept": {
+        "coefficient": 5.296846488146483,
+        "standard_error_HC3": 1.24333317213686,
+        "ci95": [
+          2.8569903568420423,
+          7.736702619450924
+        ],
+        "p": 2.2362181841182767e-05
+      },
+      "benzene": {
+        "coefficient": 0.5451977139555151,
+        "standard_error_HC3": 0.014775491473741307,
+        "ci95": [
+          0.5162030130393587,
+          0.5741924148716715
+        ],
+        "p": 1.713073060876475e-188
+      },
+      "cadmium": {
+        "coefficient": -0.06773062526065694,
+        "standard_error_HC3": 0.057002495486703345,
+        "ci95": [
+          -0.17958953100662045,
+          0.04412828048530658
+        ],
+        "p": 0.23503635853382385
+      },
+      "pollution_index": {
+        "coefficient": 0.7772604525398156,
+        "standard_error_HC3": 0.04085194481847802,
+        "ci95": [
+          0.6970945965369784,
+          0.8574263085426528
+        ],
+        "p": 4.439093522474281e-69
+      },
+      "age": {
+        "coefficient": 0.10638653307323696,
+        "standard_error_HC3": 0.01907365506588231,
+        "ci95": [
+          0.06895732640379856,
+          0.14381573974267536
+        ],
+        "p": 3.140706794092667e-08
+      }
+    },
+    "df": 995,
+    "r_squared": 0.9171927080803517,
+    "uncertainty_method": "HC3 robust standard errors; approximate t intervals"
+  },
+  "p_value_note": "A p value of 0 in JSON means floating-point underflow, not exactly zero.",
+  "interpretation": "Benzene is the chemical supported as the intended driver in this synthetic exercise. Cadmium's strong naive association is explained by pollution. These observational analyses support that interpretation but cannot prove causation without the generating mechanism or causal assumptions."
+}

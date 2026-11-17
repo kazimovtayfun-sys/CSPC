@@ -1,0 +1,34 @@
+PW3 chemical-exposure analysis
+Data shape: (1000, 5)
+Missing values: 0
+Duplicate rows: 0
+
+Task 6: naive Pearson correlations
+benzene: r = 0.384699, p = 1.28e-36
+cadmium: r = 0.879971, p < 1e-300
+
+Pollution links (Pearson correlations)
+pollution vs benzene: r = 0.054489, p = 0.085
+pollution vs cadmium: r = 0.981870, p < 1e-300
+pollution vs malignancy: r = 0.895136, p < 1e-300
+pollution vs age: r = -0.096322, p = 0.00229
+
+Task 7: partial correlations controlling pollution_index and age
+benzene: partial r = 0.759476, p = 3.47e-188, df = 996
+cadmium: partial r = 0.006886, p = 0.828, df = 996
+
+Restricted pollution band: 40 < pollution_index < 60 (n = 199)
+benzene: r = 0.701648, p = 8.08e-31
+cadmium: r = 0.315698, p = 5.57e-06
+Cadmium remains correlated inside this band: restriction alone leaves residual confounding.
+
+OLS: malignancy ~ benzene + cadmium + pollution_index + age
+95% confidence intervals use HC3 robust standard errors.
+intercept: coefficient = 5.296846, CI [2.856990, 7.736703], p = 2.24e-05
+benzene: coefficient = 0.545198, CI [0.516203, 0.574192], p = 1.71e-188
+cadmium: coefficient = -0.067731, CI [-0.179590, 0.044128], p = 0.235
+pollution_index: coefficient = 0.777260, CI [0.697095, 0.857426], p = 4.44e-69
+age: coefficient = 0.106387, CI [0.068957, 0.143816], p = 3.14e-08
+R squared = 0.917193
+
+Benzene is the chemical supported as the intended driver in this synthetic exercise. Cadmium's strong naive association is explained by pollution. These observational analyses support that interpretation but cannot prove causation without the generating mechanism or causal assumptions.
